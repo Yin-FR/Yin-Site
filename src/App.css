@@ -32,7 +32,43 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.Main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.homepage-display-block {
+  color: white;
+  text-align: center;
+}
+
+h1.homepage-display-block {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div.homepage-display-block-description {
+  margin: 0 auto;
+  width: 50vw;
+}
+
+div.homepage-display-block-description h1{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 120px;
+  margin-top: 25vh;
+}
+
+div.homepage-display-block-description p{
+  font-size: 25px;
+  font-family: 'Courier New', Courier, monospace;
 }
