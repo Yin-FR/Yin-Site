@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: yin-resume-web-frontend-config
+  namespace: yin-ns
+spec:
+  redirectToHttps:
+    enabled: true

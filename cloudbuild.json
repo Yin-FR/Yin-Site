@@ -1,0 +1,37 @@
+{
+    "steps": [
+        {
+            "name": "gcr.io/yin-resume/envsubst",
+            "env": ["TAG=${TAG_NAME}"],
+            "args": ["kubernetes/deployment.yaml"]
+        },
+        {
+            "name": "gcr.io/cloud-builders/docker",
+            "args": [
+                "build",
+                "-t",
+                "${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_IMAGE_ID}:${TAG_NAME}",
+                "."
+            ]
+        },
+        {
+            "name": "gcr.io/cloud-builders/docker",
+            "args": [
+                "push",
+                "${_LOCATION}-docker.pkg.dev/${_PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO}/${_IMAGE_ID}:${TAG_NAME}"
+            ]
+        },
+        {
+            "name": "gcr.io/cloud-builders/gke-deploy",
+            "args": [
+              "run",
+              "--filename=kubernetes/deployment.yaml",
+              "--location=europe-west9",
+              "--cluster=helloworld-gke"
+            ]
+        }
+    ],
+    "options": {
+        "automap_substitutions": true
+      }
+}
