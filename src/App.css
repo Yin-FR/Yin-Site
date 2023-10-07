@@ -46,6 +46,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+  background-color: black;
 }
 
 .homepage-display-block {
@@ -71,4 +72,79 @@ div.homepage-display-block-description h1{
 div.homepage-display-block-description p{
   font-size: 25px;
   font-family: 'Courier New', Courier, monospace;
+}
+
+.menu {
+  background: transparent;
+  text-align: center;
+  font-size: 22px;
+  width: 80vw;
+  margin: 0 auto;
+  justify-content: center;
+  font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
+}
+
+.resume-page {
+  background-color: white;
+}
+
+.ant-timeline-item-content {
+  width: calc(70% - 26px) !important;
+  inset-inline-start: calc(20% - 4px) !important;
+}
+
+.ant-timeline-item-label {
+  width: calc(20% - 12px) !important;
+}
+
+.ant-timeline-item-tail {
+  inset-inline-start: 20% !important;
+}
+
+.ant-timeline-item-head-blue {
+  inset-inline-start: 20% !important;
+}
+
+.experience-line-block{
+  margin-bottom: 3vh;
+}
+
+.experience-line-block img{
+  width: 100px;
+}
+
+.experience-line-block div{
+  margin-left: 2vw;
+}
+
+.experience-line-block-content h2{
+  margin-top: 0;
+  margin-bottom: 0.5vh;
+}
+
+.experience-line-block-content p{
+  margin-top: 0;
+  margin-bottom: 0.5vh;
+}
+
+div.experience-line-block-content{
+  margin-left: 2vw;
+}
+
+.skill-line-block {
+  display: flex;
+  margin-left: 15%;
+  margin-right: 30%;
+  justify-content: space-between;
+}
+
+.skill-line-block p{
+  font-weight: 500;
+  font-size: large;
+  margin-top: 0;
+  margin-bottom: 5vh;
+}
+
+.skill-line-block-skillbar {
+  width: 90%;
 }
