@@ -9,7 +9,6 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       getDataFromAPI("https://api.yincodeworld.com/v1/resume/descs", "GET").then((result) => {
-        console.log(result);
         setData(result);
         setLoading(false);
       }).catch((error) => {

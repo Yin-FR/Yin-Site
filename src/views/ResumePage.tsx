@@ -16,7 +16,6 @@ const ResumePage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       getDataFromAPI("https://api.yincodeworld.com/v1/resume/educations", "GET").then((result) => {
-        console.log(result);
         setEducationData(result);
         setEducationDataLoading(false);
       }).catch((error) => {
@@ -30,7 +29,6 @@ const ResumePage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       getDataFromAPI("https://api.yincodeworld.com/v1/resume/works", "GET").then((result) => {
-        console.log(result);
         setWorkData(result);
         setWorkDataLoading(false);
       }).catch((error) => {
@@ -44,7 +42,6 @@ const ResumePage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       getDataFromAPI("https://api.yincodeworld.com/v1/resume/skills", "GET").then((result) => {
-        console.log(result);
         setSkillData(result);
         setSkillDataLoading(false);
       }).catch((error) => {

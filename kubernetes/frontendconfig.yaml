@@ -5,4 +5,4 @@ metadata:
   namespace: yin-ns
 spec:
   redirectToHttps:
-    enabled: false
+    enabled: true

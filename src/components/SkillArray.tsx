@@ -30,7 +30,7 @@ const SkillArray: React.FC<Props> = ({ skillsArray }) => {
       <h1 style={{marginLeft: '2vw', marginBottom: '3vh'}}>Skills</h1>
       {skillsArray.map((skillItem) => {
         return (
-          <div className="skill-line-block">
+          <div className="skill-line-block" key={skillItem.title}>
             <p>{skillItem.title}</p>
             <Progress
               className="skill-line-block-skillbar"

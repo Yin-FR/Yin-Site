@@ -5,6 +5,7 @@ import MainMenu from './components/MainMenu';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from './views/HomePage';
 import ResumePage from './views/ResumePage';
+import PortfolioPage from './views/PortfolioPage';
 
 const { Header, Content } = Layout;
 
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path='/resume' element={<ResumePage />} />
+            <Route path='/portfolio' element={<PortfolioPage />} />
             <Route
               path="*"
               element={<Navigate to="/" replace />}

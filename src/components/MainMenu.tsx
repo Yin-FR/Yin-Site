@@ -41,6 +41,7 @@ const MainMenu: React.FC = () => {
 
   const selectItem: MenuProps['onClick'] = (params) => {
     navigate(params.key);
+    setItemSelected(params.key);
   }
   return (
     <ConfigProvider
