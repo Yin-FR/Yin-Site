@@ -17,7 +17,7 @@ const App: React.FC = () => {
       >
         <MainMenu />
       </Header>
-      <Content className="site-layout">
+      <Content className="site-layout" id='main-element'>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path='/resume' element={<ResumePage />} />

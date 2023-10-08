@@ -16,7 +16,8 @@ interface ReceivedData {
   title: string
   description: string
   main_language: string
-  language: LanguageObject
+  language: LanguageObject,
+  cover_url: string
 }
 
 interface RepoLanguegeArrayItem {
@@ -32,14 +33,14 @@ const PortfolioPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const query: object = { username: "yin-fr" };
-      getDataFromAPI("http://localhost:8080/v1/project/repos", "GET", query).then((result) => {
+      getDataFromAPI("https://api.yincodeworld.com/v1/project/repos", "GET", query).then((result) => {
         const modifiedData: Array<Repo> = (result as Array<ReceivedData>).map((eachRepo) => {
           return {
             title: eachRepo.title,
             description: eachRepo.description,
             mainLanguage: eachRepo.main_language,
             language: eachRepo.language,
-            coverUrl: ""
+            coverUrl: eachRepo.cover_url
           }
         })
         const repos: RepoLanguageObject = {};
@@ -59,7 +60,7 @@ const PortfolioPage: React.FC = () => {
           }
         })
         reposArray.sort((itemA, itemB) => {
-          return (itemA.repos.length < itemB.repos.length)? 1: (itemA.repos.length > itemB.repos.length)? -1: 0
+          return (itemA.repos.length < itemB.repos.length) ? 1 : (itemA.repos.length > itemB.repos.length) ? -1 : 0
         })
         setData(reposArray);
         setLoading(false);
@@ -71,9 +72,25 @@ const PortfolioPage: React.FC = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const backGroundElement: HTMLElement | null = (document.getElementsByClassName("particles-bg-canvas-self") as HTMLCollectionOf<HTMLElement>)[0];
+      backGroundElement.style.height = "250%";
+  }, []);
+
+
+
+  useEffect(() => {
+    const backGroundElement: HTMLElement | null = (document.getElementsByClassName("particles-bg-canvas-self") as HTMLCollectionOf<HTMLElement>)[0];
+    const mainElement: HTMLElement | null = document.getElementById('portfolio-page');
+    console.log((mainElement as HTMLElement).clientHeight);
+    if ((mainElement as HTMLElement).clientHeight) {
+      backGroundElement.style.height = (mainElement as HTMLElement).clientHeight + 164 + "px";
+    }
+  }, [data]);
+
   return (
-    <div>
-      <ParticlesBg type="square" bg={true} />
+    <div id="portfolio-page">
+
       {loading ?
         <h1></h1> :
         (Array.isArray(data)) ?
@@ -89,6 +106,8 @@ const PortfolioPage: React.FC = () => {
             })}
           </div>
           : <h1>Error</h1>}
+
+      <ParticlesBg type="square" bg={true} />
     </div>
   )
 }

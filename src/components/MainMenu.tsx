@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, ConfigProvider } from 'antd';
 import type { MenuProps } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface menuItem {
   key: string;
@@ -10,7 +10,7 @@ interface menuItem {
 
 const menuItems: Array<menuItem> = [
   {
-    key: "home",
+    key: "",
     label: "Home"
   },
   {
@@ -37,12 +37,18 @@ const menuItems: Array<menuItem> = [
 
 const MainMenu: React.FC = () => {
   const navigate = useNavigate();
-  const [itemSelected, setItemSelected] = useState('home');
+  const location = useLocation();
+  const [itemSelected, setItemSelected] = useState(location.pathname.slice(1));
 
   const selectItem: MenuProps['onClick'] = (params) => {
     navigate(params.key);
     setItemSelected(params.key);
   }
+
+  useEffect(() => {
+    setItemSelected(location.pathname.slice(1));
+  }, []);
+
   return (
     <ConfigProvider
       theme={{
@@ -57,7 +63,7 @@ const MainMenu: React.FC = () => {
     >
       <Menu
         mode="horizontal"
-        defaultSelectedKeys={[itemSelected]}
+        selectedKeys = {[itemSelected]}
         items={menuItems}
         className="menu"
         onClick={selectItem}

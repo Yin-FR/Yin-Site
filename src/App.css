@@ -148,3 +148,27 @@ div.experience-line-block-content{
 .skill-line-block-skillbar {
   width: 90%;
 }
+
+.project-line-block h1{
+  margin-left: 1vw;
+  margin-bottom: 3vh;
+}
+
+.project-line-block-div{
+  display: flex;
+  margin-bottom: 5vh;
+}
+
+.project-card-div {
+  margin-left: 2vw;
+}
+
+.project-card {
+  padding: 1vw 0.5vw 0vw 0.5vw;
+  width: 22vw;
+}
+
+.pie-chart-element {
+  width: 10vw;
+  height: 100%;
+}

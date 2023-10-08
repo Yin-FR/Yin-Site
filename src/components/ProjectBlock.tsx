@@ -9,9 +9,9 @@ export interface ProjectBlockProps {
 
 const ProjectBlock: React.FC<ProjectBlockProps> = ({ language, repos }) => {
   return (
-    <div>
-      <h1>{language}</h1>
-      <div>
+    <div className="project-line-block">
+      <h1 style={{color: "white"}}>{language}</h1>
+      <div className="project-line-block-div">
         {repos.map((repo) => {
           return (
             <ProjectCard

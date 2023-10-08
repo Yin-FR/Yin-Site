@@ -22,6 +22,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="homepage-display-block">
       <ParticlesBg type="circle" bg={true} />
+      
 
       {loading ?
         <h1></h1> :
