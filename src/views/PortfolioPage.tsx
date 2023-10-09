@@ -16,8 +16,10 @@ interface ReceivedData {
   title: string
   description: string
   main_language: string
-  language: LanguageObject,
+  language: LanguageObject
   cover_url: string
+  demo_url: string,
+  url: string
 }
 
 interface RepoLanguegeArrayItem {
@@ -40,7 +42,9 @@ const PortfolioPage: React.FC = () => {
             description: eachRepo.description,
             mainLanguage: eachRepo.main_language,
             language: eachRepo.language,
-            coverUrl: eachRepo.cover_url
+            coverUrl: eachRepo.cover_url,
+            demoUrl: eachRepo.demo_url,
+            url: eachRepo.url
           }
         })
         const repos: RepoLanguageObject = {};

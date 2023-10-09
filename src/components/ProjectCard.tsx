@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Card } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { Avatar, Card, Divider } from 'antd';
+import { GithubOutlined, CodeSandboxOutlined, LikeOutlined } from '@ant-design/icons';
 import PieEChart from "./PieEChart";
 
 const { Meta } = Card;
@@ -15,9 +15,11 @@ export interface Repo {
   mainLanguage: string
   language: LanguageObject
   coverUrl: string
+  demoUrl: string,
+  url: string
 }
 
-const ProjectCard: React.FC<Repo> = ({ title, description, language, mainLanguage, coverUrl }) => {
+const ProjectCard: React.FC<Repo> = ({ title, description, language, mainLanguage, coverUrl, demoUrl, url }) => {
   return (
     <div className="project-card-div">
       <Card
@@ -32,11 +34,12 @@ const ProjectCard: React.FC<Repo> = ({ title, description, language, mainLanguag
           />
         }
         actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
+          <a key="code" href={url} target="_blank" ><GithubOutlined /> source</a>,
+          demoUrl === "" ? <span><CodeSandboxOutlined style={{cursor: "not-allowed", pointerEvents: "none"}}/> demo</span>: <a key="demo" href={demoUrl} target="_blank" ><CodeSandboxOutlined key="demo" /> demo</a>,
+          <a key="like" href={url} target="_blank" ><LikeOutlined /></a>
         ]}
       >
+        <Divider style={{margin: "0 0 1.5vh 0"}}/>
         <Meta
           style={{height: '14vh', overflow: 'auto'}}
           avatar={<PieEChart 

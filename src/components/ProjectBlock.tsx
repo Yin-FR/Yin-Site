@@ -21,6 +21,8 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ language, repos }) => {
               coverUrl={repo.coverUrl}
               language={repo.language}
               mainLanguage={repo.mainLanguage}
+              demoUrl={repo.demoUrl}
+              url={repo.url}
             />
           )
         })}
